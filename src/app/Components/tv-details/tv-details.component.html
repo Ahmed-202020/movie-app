@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row py-5">
+    <div  class="col-md-4">
+      <img class="w-100" [src]="imgPrefix+tvDetails.poster_path" alt="poster">
+    </div>
+    <div class="col-md-8 mt-3 mt-md-0">
+      <h2>{{tvDetails.original_name}}</h2>
+      <p class="py-3">{{tvDetails.overview}}</p>
+      <ul>
+        <li>popularity : {{tvDetails.popularity}}</li>
+        <li>vote : {{tvDetails.vote_average}}</li>
+        <li>vote count : {{tvDetails.vote_count}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="p-3">
+    <input [(ngModel)] = "search" type="text" class="form-control" placeholder="search py name..">
+    <div id="myEl3" class="bg-danger bg-hide"></div>
+  </div>
+  <div class="row py-4 justify-content-center">
+    <div *ngFor="let person of people | peopleSearch:search" class="people col-xl-2 col-md-3 col-sm-6">
+      <a [routerLink]="['/peopleDetails' , person.id]" class="people style-poster">
+        <img *ngIf="person.profile_path ; else alt " class="w-100" [src]="imgPrefix + person.profile_path" alt="photo">
+        <ng-template #alt>
+          <img class="w-100 height-poster" src="../../assets/images/profile.png" alt="profile">
+        </ng-template>
+        <h3 class="h6 text-center mb-3 mt-3">{{person.original_name}}</h3>
+      </a>
+    </div>
+  </div>
+</div>

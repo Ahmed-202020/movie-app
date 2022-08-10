@@ -1,0 +1,78 @@
+<header class="vh-100 d-flex align-items-end">
+  <div class="container">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let movie of movies">
+        <ng-template carouselSlide [id]="movie.id">
+          <img [src]="imgPrefix+movie.poster_path" alt="movie">
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</header>
+<div class="container">
+  <div class="row justify-content-center py-4">
+    <div class="col-xl-4 col-md-12 mb-sm-4 mb-xl-0 d-flex align-items-center ">
+      <div class="w-100">
+        <div class="border w-25 mb-4"></div>
+        <h2>
+          Trending<br />
+          Movies<br />
+          to Watch Right Now
+        </h2>
+        <p class="text-muted">Most watche movies by day</p>
+        <div class="border w-100 mt-4"></div>
+      </div>
+    </div>
+    <div *ngFor="let movie of movies | dataLength:10" class=" col-xl-2 col-md-6">
+      <a [routerLink]="['/movieDetails' , movie.id]" class="movie style-poster">
+        <img class="w-100" [src]="imgPrefix + movie.poster_path" alt="photo">
+        <h3 class="h6 text-center mb-3 mt-3">{{movie.title | watch}}</h3>
+        <p class="text-muted">{{movie.overview | seemore:20}}</p>
+      </a>
+    </div>
+  </div>
+  <div class="row justify-content-center py-4">
+    <div class="col-xl-4 col-md-12 mb-sm-4 mb-xl-0 d-flex align-items-center ">
+      <div class="w-100">
+        <div class="border w-25 mb-4"></div>
+        <h2>
+          Trending<br />
+          TV Show<br />
+          to Watch Right Now
+        </h2>
+        <p class="text-muted">Most watche TV Show by day</p>
+        <div class="border w-100 mt-4"></div>
+      </div>
+    </div>
+    <div *ngFor="let el of tv | dataLength:10" class="col-xl-2 col-md-6">
+      <a [routerLink]="['/tvDetails' , el.id]" class="tv style-poster">
+        <img class="w-100" [src]="imgPrefix + el.poster_path" alt="photo">
+        <h3 class="h6 text-center mb-3 mt-3">{{el.name}}</h3>
+        <p class="text-muted">{{el.overview | seemore:20}}</p>
+      </a>
+    </div>
+  </div>
+  <div class="row  justify-content-center py-4">
+    <div class=" people col-xl-4 col-md-12 mb-sm-4 mb-xl-0">
+      <div class="w-100">
+        <div class="border w-25 mb-4"></div>
+        <h2>
+          Trending<br />
+          People<br />
+          to Watch Right Now
+        </h2>
+        <p class="text-muted">Most people movies by day</p>
+        <div class="border w-100 mt-4"></div>
+      </div>
+    </div>
+    <div *ngFor="let per of person | dataLength:10" class="col-xl-2 col-md-6">
+      <a [routerLink]="['/peopleDetails' , per.id]" class="people style-poster">
+        <img *ngIf="per.profile_path ; else profile " class="w-100" [src]="imgPrefix + per.profile_path" alt="photo">
+        <ng-template #profile>
+          <img class="w-100 height-poster" src="../../assets/images/profile.png" alt="profile">
+        </ng-template>
+        <h3 class="h6 text-center mb-3 mt-3">{{per.name}}</h3>
+      </a>
+    </div>
+  </div>
+</div>

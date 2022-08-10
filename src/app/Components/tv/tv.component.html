@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="d-flex justify-content-center p-5">
+    <nav aria-label="...">
+      <ul class="pagination pagination-sm">
+        <li *ngFor="let num of pagesNumber ; let i = index" (click)="showPage(i+1)" class="page-item active"aria-current="page">
+          <span class="page-link bg-transparent cursor-pointer">{{i+1}}</span>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="p-3">
+    <input [(ngModel)] = "search" type="text" placeholder="search py name.." class="form-control">
+    <div id="myEl2" class="bg-danger bg-hide"></div>
+  </div>
+  <div class="row py-4 justify-content-center">
+    <div *ngFor = "let tv of tvShow | tvSearch:search" class="col-xl-2 col-md-3 col-sm-6">
+      <a [routerLink]= "['/tvDetails' , tv.id]" class="tv style-poster">
+        <img class="w-100" [src]="imgPrefix + tv.poster_path" alt="photo">
+        <h3 class="h6 text-center mb-3 mt-3">{{tv.name | watch}}</h3>
+        <p class="text-muted">{{tv.overview | seemore:20}}</p>
+      </a>
+    </div>
+  </div>
+</div>

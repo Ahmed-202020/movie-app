@@ -1,0 +1,56 @@
+.height-poster {
+  min-height: 248.65px;
+  max-height: 248.65px;
+}
+
+@media(max-width:1199.98px) {
+  .height-poster {
+    min-height: 324px;
+    max-height: 324px;
+  }
+}
+@media(max-width:991.98px) {
+  .height-poster {
+    min-height: 234px;
+    max-height: 234px;
+  }
+}
+@media(max-width:767.98px) {
+  .height-poster {
+    min-height: 369px;
+    max-height: 369px;
+  }
+}
+@media(max-width:575.98px) {
+  .row{
+  .people {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+  .height-poster {
+    min-height: 827px;
+    max-height: 827px;
+  }
+}
+@media (max-width:500px) {
+  .height-poster {
+    min-height: 586px;
+    max-height: 586px;
+  }
+}
+
+@media (max-width:360px) {
+  .height-poster {
+    min-height: 504px;
+    max-height: 504px;
+  }
+}
+
+@media (max-width:280px) {
+  .height-poster {
+    min-height: 384px;
+    max-height: 384px;
+  }
+}

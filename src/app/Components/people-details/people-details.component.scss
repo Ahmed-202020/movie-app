@@ -1,0 +1,41 @@
+.height-poster-detail {
+  min-height: 533.98px;
+  max-height: 533.98px;
+}
+@media(max-width:1199.98px){
+  .height-poster-detail {
+    min-height: 444px;
+    max-height: 444px;
+  }
+}
+@media(max-width:991.98px){
+  .height-poster-detail {
+    min-height: 324px;
+    max-height: 324px;
+  }
+}
+@media(max-width:575.98px){
+  .height-poster-detail {
+    min-height: 827px;
+    max-height: 827px;
+  }
+}
+@media(max-width:500px){
+  .height-poster-detail {
+    min-height: 586px;
+    max-height: 586px;
+  }
+}
+@media (max-width:360px) {
+  .height-poster-detail {
+    min-height: 504px;
+    max-height: 504px;
+  }
+}
+
+@media (max-width:280px) {
+  .height-poster-detail {
+    min-height: 384px;
+    max-height: 384px;
+  }
+}

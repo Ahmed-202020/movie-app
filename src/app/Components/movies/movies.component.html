@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="d-flex p-5 justify-content-center">
+    <nav aria-label="...">
+      <ul class="pagination pagination-sm">
+        <li *ngFor="let num of pagesNumber let i = index" (click)="showPage(i+1)" class="page-item  cursor-pointer"
+          aria-current="page">
+          <span class="bg-transparent cursor-pointer page-link">{{i+1}}</span>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="p-3">
+    <input [(ngModel)]="term" placeholder="search py name.." type="text" class="form-control" />
+    <div id="myEl" class="bg-danger bg-hide"></div>
+  </div>
+  <div class="row py-4 justify-content-center">
+    <div *ngFor="let movie of movies | moviesSearch:term " class="col-xl-2 col-md-3 col-sm-6">
+      <a  [routerLink]="['/movieDetails' , movie.id]" class="movie style-poster" >
+        <img class="w-100" [src]="imgPrefix + movie.poster_path" alt="photo">
+        <h3 class="h6 text-center mb-3 mt-3">{{movie.title | watch}}</h3>
+        <p class="text-muted">{{movie.overview | seemore:20}}</p>
+      </a>
+    </div>
+  </div>
+</div>

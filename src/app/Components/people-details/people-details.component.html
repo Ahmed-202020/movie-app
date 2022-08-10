@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row py-5">
+    <div class="col-md-4">
+      <img *ngIf="personDetails.profile_path ; else alt" class="w-100" [src]="imgPrefix+personDetails.profile_path" alt="photo">
+      <ng-template #alt>
+        <img class="w-100 height-poster-detail" src="../../assets/images/profile.png" alt="profile">
+      </ng-template>
+    </div>
+    <div class="col-md-8 mt-3 mt-md-0">
+      <h2>{{personDetails.name}}</h2>
+      <p class="py-3">{{personDetails.biography}}</p>
+      <ul>
+        <li>place of birth : {{personDetails.place_of_birth}}</li>
+        <li>known for department : {{personDetails.known_for_department}}</li>
+        <li>popularity: {{personDetails.popularity}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
