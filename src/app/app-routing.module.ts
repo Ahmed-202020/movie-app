@@ -14,15 +14,15 @@ import { TvDetailsComponent } from './Components/tv-details/tv-details.component
 import { PeopleDetailsComponent } from './Components/people-details/people-details.component';
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
-  { path: "home", canActivate: [AuthGuard], component: HomeComponent },
-  { path: "movies", canActivate: [AuthGuard], component: MoviesComponent },
-  { path: "movieDetails/:id", canActivate: [AuthGuard], component: MovieDetailsComponent },
+  { path: "home", canActivate:[AuthGuard] , component: HomeComponent },
+  { path: "movies" , canActivate:[AuthGuard] , component: MoviesComponent },
+  { path: "movieDetails/:id", canActivate:[AuthGuard] , component: MovieDetailsComponent },
   {path : "tv" , canActivate:[AuthGuard] , component: TvComponent} ,
   {path : "tvDetails/:id" , canActivate:[AuthGuard] , component: TvDetailsComponent} ,
-  { path: "people", canActivate: [AuthGuard], component: PeopleComponent },
+  { path: "people", canActivate:[AuthGuard] , component: PeopleComponent },
   {path : "peopleDetails/:id" , canActivate:[AuthGuard] , component: PeopleDetailsComponent} ,
   {path : "login" , canActivate:[LoginGuard] , component: LoginComponent} ,
-  {path : "register" , canActivate:[LoginGuard] , component: RegisterComponent} ,
+  {path : "register"  , canActivate:[LoginGuard] , component: RegisterComponent} ,
   {path : "**" , component: NotFoundComponent} ,
 ];
 

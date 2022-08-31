@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../../Services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,9 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  errorMessage: string = "";
-  isLoading: boolean = false;
-  constructor(private _AuthService: AuthService, private _Router: Router) { }
+  constructor(private _Router: Router) { }
   ngOnInit(): void {
   }
   registerForm: FormGroup = new FormGroup({
@@ -23,18 +20,7 @@ export class RegisterComponent implements OnInit {
   })
   submitRegisterForm() {
     if (this.registerForm.valid) {
-      this.isLoading = true;
-      this._AuthService.signUp(this.registerForm.value).subscribe({
-        next: (res) => {
-          if (res.message === "success") {
-            this._Router.navigate(["/login"]);
-            this.isLoading = false;
-          } else {
-            this.errorMessage = res.message;
-            this.isLoading = false;
-          }
-        }
-      })
+      this._Router.navigate(["/login"]);
     }
   }
 }

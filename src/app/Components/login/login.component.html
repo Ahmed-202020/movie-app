@@ -1,8 +1,7 @@
 <div class="container">
   <h4 class="py-2">Login:</h4>
   <div class="w-75 mx-auto mb-5">
-    <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
-    <form (ngSubmit)="submitRegisterForm()" [formGroup]="loginForm">
+    <form (ngSubmit)="submitLoginForm()" [formGroup]="loginForm">
       <label for="email" class="mb-2">email</label>
       <input formControlName="email" type="email" id="email" class="form-control mb-2">
       <div *ngIf="loginForm.get('email')?.errors&&loginForm.get('email')?.touched">
@@ -18,8 +17,7 @@
         </p>
       </div>
       <button type="submit" [disabled]="loginForm.invalid" class="btn btn-info">
-        <span *ngIf="isLoading" class="mx-auto"><i class="fas fa-spinner fa-spin"></i></span>
-        <span *ngIf="!isLoading">Login</span>
+        Login
       </button>
     </form>
   </div>

@@ -9,22 +9,23 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  userData: any = new BehaviorSubject(null);
+  ls:any = localStorage.getItem("login");
+  login:boolean = JSON.parse(this.ls)  ;
+  isLogin: any = new BehaviorSubject(this.login);
   constructor(private _HttpClient: HttpClient , private _Router:Router) { }
   signUp(formData:Register):Observable<any> {
     return this._HttpClient.post("https://route-egypt-api.herokuapp.com/signup", formData);
   }
-  signIn(formData:Login):Observable<any> {
-    return this._HttpClient.post("https://route-egypt-api.herokuapp.com/signin", formData);
+  signIn() {
+    this.login = true;
+    this.isLogin.next(this.login);
+    localStorage.setItem("login", this.isLogin.getValue());
   }
   signOut() {
-    localStorage.removeItem("userToken");
-    this.userData.next(null);
+    this.login = false;
+    this.isLogin.next(this.login);
+    console.log(this.isLogin.getValue());
+    localStorage.setItem("login", this.isLogin.getValue());
     this._Router.navigate(["/login"]);
-  }
-  saveUserData() {
-    let incodedToken = JSON.stringify(localStorage.getItem("userToken"));
-    let decodedToken = jwtDecode(incodedToken);
-    this.userData.next(decodedToken);
   }
 }
